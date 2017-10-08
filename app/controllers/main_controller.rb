@@ -5,10 +5,13 @@ protect_from_forgery except: :test
   end
 
   def test
-    # render js: "alert('hi')"
-  #     respond_to do |format|
-  #   format.html { render 'test.js.erb' }
-  # end
-  render html: "test.js.erb", format: :js
+    # 1. render js: "alert('hi')"
+    # 2. render template: "main/test.js.erb"
+    # 3. render file: "main/test.js.erb"
+  
+  respond_to do |format|
+    format.js { render 'main/test.js.erb' }
+    format.html { render 'main/test.js.erb' }
+  end
   end
 end
