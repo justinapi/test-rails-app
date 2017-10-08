@@ -1,0 +1,6 @@
+<%= form_tag("/main/test", method: "get", :remote => true) do %>
+
+<%= select_tag(:driver_session_id,
+  options_for_select([1,2,3]),
+  onchange: "this.form.submit();") %>
+<% end %>
